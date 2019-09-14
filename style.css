@@ -1,0 +1,18 @@
+
+/* begin modal styling */
+.modal-content {
+    text-align: center;
+    color: white;
+    background-color: teal;
+    padding-bottom: 3%;
+}
+
+.modal-header {
+    margin: 0 auto;
+}
+
+
+.abcRioButton {
+    margin: auto;
+}
+/* end modal styling */
