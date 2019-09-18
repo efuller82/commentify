@@ -1,5 +1,13 @@
 $(document).ready(function() {
 
+testing();
+
+function testing() {
+    $.post("/api/Spotify", "love", function(data) {
+        console.log(data);
+    });
+};
+
 var $newArtist = $("input.song-input");
 var $newSong = $("input.artist-input");
 var $newAuthor = $("input.author-input");
