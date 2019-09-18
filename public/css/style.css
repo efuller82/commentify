@@ -96,4 +96,17 @@ canvas {
   filter: alpha (opacity(60));
 }
 
-      
+/* modal sign in css */
+#modal1 {
+  text-align: center;
+  background-color: teal;
+}
+
+h2 {
+  margin: auto;
+}
+
+.abcRioButton {
+  margin: auto;
+}
+      /* end sign in modal css  */
