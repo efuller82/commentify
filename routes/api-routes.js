@@ -1,6 +1,27 @@
 var db = require("../models");
 
+var SpotifyAPI = require("./SpotifyAPI");
+
+var configKey = {
+    id: "5844d81617c04c9e99a4726e25a7d543",
+    secret: "d3d0ec9f53024b1da340c446a312de0f",
+};
+
+var spotify = new SpotifyAPI(configKey);
+
 module.exports = function(app) {
+
+    app.post("/api/Spotify", function(req, res) {
+        spotify.getSong("Dont Stop Believing", (error, data) => {
+            if(error) {
+                console.log(error);
+                return;
+            }
+            console.log("it worked");
+            //console.log(data);
+            res.json(data);
+        });
+    });
 
     app.get("/api/reviews", function(req, res) {
         db.Review.findAll({}).then(function(dbReview) {
