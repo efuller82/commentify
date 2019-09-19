@@ -31,6 +31,17 @@ module.exports = function(app) {
         });
     });
 
+    app.get("/api/reviews/:author", function(req, res) {
+        console.log(req.params);
+        db.Review.findAll({
+            where: {
+                author: req.params.author
+            }
+        }).then(function(dbReview) {
+            res.json(dbReview);
+        });
+    });
+
     app.post("/api/reviews", function(req, res) {
         db.Review.create({
             artist: req.body.artist,
