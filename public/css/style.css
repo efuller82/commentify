@@ -107,22 +107,54 @@ canvas {
   background-color: white;
   padding: 10px;
   font-size: 24px;
-  opacity: 0.7;
+  opacity: 0.8;
   border-radius: 25px;
   white-space: nowrap;
 }
 
 .form-check {
   background-color: white;
-  padding: 10px;
+  padding: 20px;
   font-size: 16px;
   opacity: 0.8;
   border-radius: 25px;
-  width: 50%;
+  width: 75%;
   display: block;
-  left: 25%;
+  left: 15%;
 }
 
 img {
   float: right;
+}
+
+.review-container {
+  height: 475px;
+  overflow-y:scroll;
+}
+
+.review-item {
+  opacity: 0.8;
+  border-radius: 25px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px whitesmoke; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(73,125,189); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(28,58,148); 
 }

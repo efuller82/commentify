@@ -70,34 +70,36 @@
 
         <hr>
 
-        <div class="container">
-            <div id="song-results"></div>
-        </div>
-
-        <hr>
-
     </div>
 
     <div id="makeReview">
 
         <div class="container">
-            <div>
-                <form id="review-form">
-                    <textarea class="review-input form-control" placeholder="Review" rows="3"></textarea>
-                    <br>
-                    <button type="submit" class="btn btn-primary">Add a Review</button>
-                </form>
+
+            <div class="row">
+                <div class="col-sm-7">
+                    <div id="song-results"></div>
+
+                    <hr>
+
+                    <div>
+                        <form id="review-form">
+                            <textarea class="review-input form-control" placeholder="Review" rows="3"></textarea>
+                            <br>
+                            <button type="submit" class="btn btn-primary">Add a Review</button>
+                        </form>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="col-sm-1"></div>
+        
+                <div class="col-sm-4">
+                    <div class="review-container"></div>
+                </div>
             </div>
         </div>
-
-        <hr>
-
-        <div class="container">
-            <div class="col-sm-6">
-                <span class="review-container"></span>
-            </div>
-        </div>
-
+    
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

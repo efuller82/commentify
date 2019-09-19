@@ -112,7 +112,7 @@ function initializeRows() {
     $reviewContainer.empty();
     var rowsToAdd = [];
     for (var i = 0; i < reviews.length; i++) {
-        rowsToAdd.push(createNewRow(reviews[i]));
+        rowsToAdd.splice(0, 0, createNewRow(reviews[i]));
     }
     $reviewContainer.prepend(rowsToAdd);
 };
@@ -177,7 +177,7 @@ function createNewRow(review) {
             "<p>" + "Review: " + review.review + "</p>" + 
             "<input type='text' class='edit' style='display: none;'>" +
             "<button class='delete btn btn-danger'>x</button>" + 
-            "</li>"
+            "</li>" + "<br>" + "<br>"
         );
     
         $newInputRow.find("button.delete").data("id", review.id);
@@ -191,7 +191,7 @@ function createNewRow(review) {
             "<p>" + "Review: " + review.review + "</p>" + 
             //"<input type='text' class='edit' style='display: none;'>" +
             //"<button class='delete btn btn-danger'>x</button>" + 
-            "</li>"
+            "</li>" + "<br>" + "<br>"
         );
     
         //$newInputRow.find("button.delete").data("id", review.id);
