@@ -1,27 +1,13 @@
 var db = require("../models");
+var Sequelize = require("sequelize");
+const Op = Sequelize.Op;
 
-//require("dotenv").config();
+
+require("dotenv").config();
 var SpotifyAPI = require("./SpotifyAPI");
+var keys = require("../keys.js");
 
-// for hiding variables in development
-require('dotenv').config();
-var configKey = {
-    //borrowing due to testing
-    id: process.env.ID,
-    secret: process.env.SECRET
-};
-
-// ! uncomment for production
-var configKey = {
-    //borrowing due to testing
-    id: ID,
-    secret: SECRET
-};
-
-
-
-var spotify = new SpotifyAPI(configKey);
-//var spotify = new SpotifyAPI(keys.spotify);
+var spotify = new SpotifyAPI(keys.spotify);
 
 module.exports = function (app) {
 
