@@ -1,10 +1,16 @@
 var db = require("../models");
 
-require("dotenv").config();
+//require("dotenv").config();
 var SpotifyAPI = require("./SpotifyAPI");
-var keys = require("../keys.js");
+//var keys = require("../keys.js");
+var configKey = {
+    //borrowing due to testing
+    id: "34e84d93de6a4650815e5420e0361fd3",
+    secret: "5162cd8b5cf940f48702dffe096c2acb"
+};
 
-var spotify = new SpotifyAPI(keys.spotify);
+var spotify = new SpotifyAPI(configKey);
+//var spotify = new SpotifyAPI(keys.spotify);
 
 module.exports = function(app) {
 
