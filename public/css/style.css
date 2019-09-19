@@ -1,10 +1,11 @@
 /* ---- reset ---- */ 
 body{ 
-    margin:0; 
-    font:normal 75% Arial,
-     Helvetica,
-      sans-serif; 
-    } 
+  text-align: center;
+  margin:0; 
+  font:normal 75% Arial,
+    Helvetica,
+    sans-serif; 
+} 
 
 h1 {
   background-color: black;
@@ -19,13 +20,14 @@ canvas {
  /* ---- particles.js container ---- */ 
  
  #particles-js{ 
-     position:absolute; 
-     width: 100%; 
-     height: 100%; 
-     background-image: url("https://wallpaper-gallery.net/images/music-themed-wallpaper/music-themed-wallpaper-11.jpg"); 
-     background-repeat: no-repeat; 
-     background-size: cover; 
-     background-position: 50% 50%; 
+    z-index: -1;
+    position:absolute; 
+    width: 100%; 
+    height: 100%; 
+    background-image: url("https://wallpaper-gallery.net/images/music-themed-wallpaper/music-themed-wallpaper-11.jpg"); 
+    background-repeat: no-repeat; 
+    background-size: auto; 
+    background-position: 50% 50%; 
     } 
     
     .wrapper {
@@ -36,8 +38,8 @@ canvas {
       }
        
       .search-box {
-        width: 750px;
         height: 100px;
+        width: 75%;
         position: relative;
         opacity: 0.8;
         filter: alpha (opacity(60));
@@ -96,17 +98,31 @@ canvas {
   filter: alpha (opacity(60));
 }
 
-/* modal sign in css */
-#modal1 {
-  text-align: center;
-  background-color: teal;
+#song-results {
+  height: 300px;
+  overflow-y: auto;
+}
+      
+#userName {
+  background-color: white;
+  padding: 10px;
+  font-size: 24px;
+  opacity: 0.7;
+  border-radius: 25px;
+  white-space: nowrap;
 }
 
-h2 {
-  margin: auto;
+.form-check {
+  background-color: white;
+  padding: 10px;
+  font-size: 16px;
+  opacity: 0.8;
+  border-radius: 25px;
+  width: 50%;
+  display: block;
+  left: 25%;
 }
 
-.abcRioButton {
-  margin: auto;
+img {
+  float: right;
 }
-      /* end sign in modal css  */
