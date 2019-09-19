@@ -5,12 +5,20 @@ var SpotifyAPI = require("./SpotifyAPI");
 
 // for hiding variables in development
 require('dotenv').config();
-
 var configKey = {
     //borrowing due to testing
     id: process.env.ID,
     secret: process.env.SECRET
 };
+
+// ! uncomment for production
+var configKey = {
+    //borrowing due to testing
+    id: ID,
+    secret: SECRET
+};
+
+
 
 var spotify = new SpotifyAPI(configKey);
 //var spotify = new SpotifyAPI(keys.spotify);

@@ -17,7 +17,7 @@
   },
   "production": {
     "username": "root",
-    "password": "secretpassword",
+    "password": "Isaaczoeezra1!",
     "database": "database_production",
     "use_env_variable": "JAWSDB_URL",
     "port": 3306,
