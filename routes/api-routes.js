@@ -4,7 +4,7 @@ var db = require("../models");
 var SpotifyAPI = require("./SpotifyAPI");
 
 // for hiding variables in development
-// require('dotenv').config();
+require('dotenv').config();
 
 var configKey = {
     //borrowing due to testing
