@@ -1,7 +1,6 @@
 var express = require("express");
 
 var app = express();
-//! Eric changed this from 8080 to 3000 for heroku db
 var PORT = process.env.PORT || 3000;
 
 var db = require("./models");

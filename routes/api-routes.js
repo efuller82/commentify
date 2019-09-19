@@ -3,8 +3,6 @@ var db = require("../models");
 var SpotifyAPI = require("./SpotifyAPI");
 
 var configKey = {
-    //id: "5844d81617c04c9e99a4726e25a7d543",
-    //secret: "d3d0ec9f53024b1da340c446a312de0f",
     //borrowing due to testing
     id: "34e84d93de6a4650815e5420e0361fd3",
     secret: "5162cd8b5cf940f48702dffe096c2acb"

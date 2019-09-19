@@ -19,6 +19,7 @@ function loggingUser() {
         $("#userName").text("Welcome " + $newAuthor + "!");
         $("button.login").text("Log Out");
 
+        $("#song-results").empty();
         $("#searchSong").css("visibility", "visible");
     } else {
         $("#userName").css("visibility", "hidden");
@@ -74,6 +75,7 @@ function showSongs(data) {
     };
 
     $("#makeReview").css("visibility", "visible");
+    getReviews();
 };
 
 //begin script for oauth
@@ -106,8 +108,6 @@ $(document).on("submit", "#review-form", insertReview);
 
 var reviews = [];
 
-getReviews();
-
 function initializeRows() {
     $reviewContainer.empty();
     var rowsToAdd = [];
@@ -135,17 +135,15 @@ function deleteReview(event) {
 
 function editReview() {
     var currentReview = $(this).data("review");
-    //$(this).children().hide();
-    $(this).children("input.edit").val(currentReview.text);
+    $(this).children("input.edit").val(currentReview.review);
     $(this).children("input.edit").show();
     $(this).children("input.edit").focus();
 };
 
 function finishEdit(event) {
     var updatedReview = $(this).data("review");
-    console.log(updatedReview);
     if (event.which === 13) {
-        updatedReview.text = $(this).children("input").val().trim();
+        updatedReview.review = $(this).children("input").val().trim();
         $(this).blur();
         updateReview(updatedReview);
     };
@@ -162,40 +160,45 @@ function updateReview(review) {
 function cancelEdit() {
     var currentReview = $(this).data("review");
     if (currentReview) {
-        //$(this).children().hide();
-        $(this).children("input.edit").val(currentReview.text);
-        $(this).children("span").show();
-        $(this).children("button").show();
+        $(this).children("input.edit").hide();
+        $(this).children("input.edit").val(currentReview.review);
+        //$(this).children("span").show();
+        //$(this).children("button").show();
     }
 }
 
 function createNewRow(review) {
-    var $newInputRow = $(
-        [
-            "<li class='list-group-item review-item'>",
-            "<span>",
-            review.artist,
-            "</span>",
-            "<span>",
-            review.song,
-            "</span>",
-            "<span>",
-            review.author,
-            "</span>",
-            "<br>",
-            "<span>",
-            review.review,
-            "</span>",
-            "<input type='text' class='edit' style='display: none;'>",
-            "<button class='delete btn btn-danger'>x</button>",
-            "</li>",
-            "<br>"
-        ].join("\n")
-    );
 
-    $newInputRow.find("button.delete").data("id", review.id);
-    $newInputRow.find("input.edit").css("display", "none");
-    $newInputRow.data("review", review);
+    if ($newAuthor === review.author) {
+        var $newInputRow = $(
+            "<li class='list-group-item review-item'>" + "<p>" + "User: " + review.author + "</p>" +
+            "<p>" + "Artist(s): " + review.artist + "</p>" + 
+            "<p>" + "Song: " + review.song + "</p>" + 
+            "<p>" + "Review: " + review.review + "</p>" + 
+            "<input type='text' class='edit' style='display: none;'>" +
+            "<button class='delete btn btn-danger'>x</button>" + 
+            "</li>"
+        );
+    
+        $newInputRow.find("button.delete").data("id", review.id);
+        $newInputRow.find("input.edit").css("display", "none");
+        $newInputRow.data("review", review);
+    } else {
+        var $newInputRow = $(
+            "<li class='list-group-item review-item'>" + "<p>" + "User: " + review.author + "</p>" +
+            "<p>" + "Artist(s): " + review.artist + "</p>" + 
+            "<p>" + "Song: " + review.song + "</p>" + 
+            "<p>" + "Review: " + review.review + "</p>" + 
+            //"<input type='text' class='edit' style='display: none;'>" +
+            //"<button class='delete btn btn-danger'>x</button>" + 
+            "</li>"
+        );
+    
+        //$newInputRow.find("button.delete").data("id", review.id);
+        //$newInputRow.find("input.edit").css("display", "none");
+        $newInputRow.data("review", review);
+    };
+    
     return $newInputRow;
 };
 
