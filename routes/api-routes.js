@@ -1,5 +1,6 @@
 var db = require("../models");
 
+//require("dotenv").config();
 var SpotifyAPI = require("./SpotifyAPI");
 
 // for hiding variables
@@ -12,6 +13,7 @@ var configKey = {
 };
 
 var spotify = new SpotifyAPI(configKey);
+//var spotify = new SpotifyAPI(keys.spotify);
 
 module.exports = function (app) {
 
