@@ -39,7 +39,6 @@ canvas {
        
       .search-box {
         height: 100px;
-        width: 75%;
         position: relative;
         opacity: 0.8;
         filter: alpha (opacity(60));
@@ -157,4 +156,14 @@ img {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(28,58,148); 
+}
+
+footer {
+  position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   text-align: center;
+   background-color: #182955;
+   color: white;
 }
