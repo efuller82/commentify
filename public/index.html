@@ -60,48 +60,49 @@
 
     <hr>
 
-<div id="searchSong">
+    <div id="searchSong">
 
-    <div class="search-box"><input type="text" placeholder="Search" class="input">
-        <div class="btnn">
-            <i class="fa fa-search" aria-hidden="true"></i>
+        <div class="search-box"><input type="text" placeholder="Search" class="input">
+            <div class="btnn">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
         </div>
-    </div>
 
-    <hr>
+        <hr>
 
-    <div class="container">
-        <div id="song-results"></div>
-    </div>
-
-    <hr>
-
-</div>
-
-<div id="makeReview">
-
-    <div class="container">
-        <div>
-            <form id="review-form">
-                <textarea class="review-input form-control" placeholder="Review" rows="3"></textarea>
-                <br>
-                <button type="submit" class="btn btn-primary">Add a Review</button>
-            </form>
+        <div class="container">
+            <div id="song-results"></div>
         </div>
+
+        <hr>
+
     </div>
 
-    <hr>
+    <div id="makeReview">
 
-    <div class="container">
-        <div class="col-sm-6">
-            <span class="review-container"></span>
+        <div class="container">
+            <div>
+                <form id="review-form">
+                    <textarea class="review-input form-control" placeholder="Review" rows="3"></textarea>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Add a Review</button>
+                </form>
+            </div>
         </div>
-    </div>
 
-</div>
+        <hr>
+
+        <div class="container">
+            <div class="col-sm-6">
+                <span class="review-container"></span>
+            </div>
+        </div>
+
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- ! changing http to https in attempt to fix particle for heroku -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script type="text/javascript" src="./js/particles.js"></script>
     <script src="js/view.js" type="text/javascript"></script>
 </body>
