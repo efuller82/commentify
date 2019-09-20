@@ -54,7 +54,7 @@ function loggingUser() {
     }
     $("input.signIn").val("");
 };
-///
+
 $(document).on("click", ".btnn", buttonMagic);
 $(document).on("keyup", "#magic-button", checkButtonMagic);
 
@@ -93,7 +93,6 @@ $(document).on("click", "button.delete", deleteReview);
 $(document).on("click", ".review-item", editReview);
 $(document).on("keyup", ".review-item", finishEdit);
 $(document).on("blur", ".review-item", cancelEdit);
-$(document).on("submit", "#review-form", insertReview);
 
 $(document).on("click", "button.my-reviews", getMyReviews);
 $(document).on("click", "button.all-reviews", getReviews);
@@ -109,7 +108,10 @@ function initializeRows() {
     $reviewContainer.prepend(rowsToAdd);
 };
 
+var onlyMyReview = false;
+
 function checkArtist(input) {
+    onlyMyReview = false;
     $.get("/api/artist/" + input, function(data) {
         reviews = data;
         initializeRows();
@@ -117,6 +119,7 @@ function checkArtist(input) {
 };
 
 function checkSong(input) {
+    onlyMyReview = false;
     $.get("/api/song/" + input, function(data) {
         reviews = data;
         initializeRows();
@@ -124,6 +127,7 @@ function checkSong(input) {
 };
 
 function checkUser(input) {
+    onlyMyReview = false;
     $.get("/api/author/" + input, function(data) {
         reviews = data;
         initializeRows();
@@ -131,6 +135,7 @@ function checkUser(input) {
 };
 
 function checkItAll(input) {
+    onlyMyReview = false;
     $.get("/api/all/" + input, function(data) {
         reviews = data;
         initializeRows();
@@ -138,6 +143,7 @@ function checkItAll(input) {
 };
 
 function getReviews() {
+    onlyMyReview = false;
     $.get("/api/reviews", function(data) {
         reviews = data;
         initializeRows();
@@ -145,6 +151,7 @@ function getReviews() {
 };
 
 function getMyReviews() {
+    onlyMyReview = true;
     $.get("/api/reviews/" + $newAuthor, function(data) {
         reviews = data;
         initializeRows();
@@ -154,11 +161,19 @@ function getMyReviews() {
 function deleteReview(event) {
     event.stopPropagation();
     var id = $(this).data("id");
-    $.ajax({
-        method: "DELETE",
-        url: "/api/reviews/" + id
-    }).then(getReviews);
-}
+
+    if (onlyMyReview) {
+        $.ajax({
+            method: "DELETE",
+            url: "/api/reviews/" + id
+        }).then(getMyReviews);
+    } else {
+        $.ajax({
+            method: "DELETE",
+            url: "/api/reviews/" + id
+        }).then(getReviews);
+    };
+};
 
 function editReview() {
     var currentReview = $(this).data("review");
@@ -177,11 +192,19 @@ function finishEdit(event) {
 };
 
 function updateReview(review) {
-    $.ajax({
-        method: "PUT",
-        url: "/api/reviews",
-        data: review
-    }).then(getReviews);
+    if (onlyMyReview) {
+        $.ajax({
+            method: "PUT",
+            url: "/api/reviews",
+            data: review
+        }).then(getMyReviews);
+    } else {
+        $.ajax({
+            method: "PUT",
+            url: "/api/reviews",
+            data: review
+        }).then(getReviews);
+    }
 };
 
 function cancelEdit() {
@@ -189,10 +212,8 @@ function cancelEdit() {
     if (currentReview) {
         $(this).children("input.edit").hide();
         $(this).children("input.edit").val(currentReview.review);
-        //$(this).children("span").show();
-        //$(this).children("button").show();
-    }
-}
+    };
+};
 
 function createNewRow(review) {
 
@@ -228,23 +249,5 @@ function createNewRow(review) {
     
     return $newInputRow;
 };
-
-function insertReview(event) {
-    event.preventDefault();
-    //id = artist, value = song
-    $newArtist = document.querySelector("input[name='song']:checked").id;
-    $newSong = document.querySelector("input[name='song']:checked").value;
-
-    var review = {
-        artist: $newArtist.trim(),
-        song: $newSong.trim(),
-        author: $newAuthor,
-        review: $newReview.val().trim()
-    };
-
-    $.post("/api/reviews", review, getReviews);
-    $newReview.val("");
-};
-
 
 });
