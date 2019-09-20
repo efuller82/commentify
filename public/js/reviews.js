@@ -54,13 +54,16 @@ function loggingUser() {
     }
     $("input.signIn").val("");
 };
+///
+$(document).on("click", ".btnn", buttonMagic);
+$(document).on("keyup", "#magic-button", checkButtonMagic);
 
-$(".btnn").click(function(){
+function buttonMagic() {
     $(".input").toggleClass("active").focus;
-    $(this).toggleClass("animate");
+    $(".btnn").toggleClass("animate");
     var reviewInput = $(".input").val();
     if (reviewInput != "") {
-        console.log(reviewInput);
+        //console.log(reviewInput);
         var choice = $("option:selected").text();
         $("select").prop("selectedIndex", 0);
 
@@ -75,7 +78,14 @@ $(".btnn").click(function(){
         }
     }
     $(".input").val("");
-}); 
+};
+
+function checkButtonMagic(e) {
+    if(e && e.keyCode == 13) {
+        $("#magic-button").blur();
+        buttonMagic();
+    };
+};
 
 var $reviewContainer = $(".review-container");
 
