@@ -54,17 +54,28 @@ function loggingUser() {
     $("input.signIn").val("");
 };
 
-$(".btnn").click(function(){
+
+$(document).on("click", ".btnn", buttonMagic);
+$(document).on("keyup", "#magic-button", checkButtonMagic);
+
+function buttonMagic() {
     $(".input").toggleClass("active").focus;
-    $(this).toggleClass("animate");
+    $(".btnn").toggleClass("animate");
     var songInput = $(".input").val();
     if (songInput != "") {
-        console.log(songInput);
+        //console.log(songInput);
         $newSong = songInput;
         spotifySearch();
     }
     $(".input").val("");
-}); 
+};
+
+function checkButtonMagic(e) {
+    if(e && e.keyCode == 13) {
+        $("#magic-button").blur();
+        buttonMagic();
+    }
+};
 
 function spotifySearch() {
     var songSearch = {
@@ -72,7 +83,7 @@ function spotifySearch() {
     };
     $.post("/api/Spotify", songSearch, function(data) {
         showSongs(data);
-        console.log(data);
+        //console.log(data);
     });
 };
 
