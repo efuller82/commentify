@@ -68,8 +68,8 @@ $(".btnn").click(function(){
             checkArtist(reviewInput);
         } else if (choice === "Song Search") {
             checkSong(reviewInput);
-        } else if (choice === "Author Search") {
-            checkAuthor(reviewInput);
+        } else if (choice === "User Search") {
+            checkUser(reviewInput);
         } else {
             checkItAll(reviewInput);
         }
@@ -113,7 +113,7 @@ function checkSong(input) {
     });
 };
 
-function checkAuthor(input) {
+function checkUser(input) {
     $.get("/api/author/" + input, function(data) {
         reviews = data;
         initializeRows();
