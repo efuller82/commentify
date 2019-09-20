@@ -2,17 +2,17 @@ var db = require("../models");
 var Sequelize = require("sequelize");
 const Op = Sequelize.Op;
 
-
 require("dotenv").config();
 var SpotifyAPI = require("./SpotifyAPI");
 var keys = require("../keys.js");
 var spotify = new SpotifyAPI(keys.spotify);
 
-module.exports = function(app) {
+module.exports = function (app) {
 
-    app.post("/api/Spotify", function(req, res) {
+
+    app.post("/api/Spotify", function (req, res) {
         spotify.getSong(req.body.song, (error, data) => {
-            if(error) {
+            if (error) {
                 console.log(error);
                 return;
             }
@@ -20,8 +20,8 @@ module.exports = function(app) {
         });
     });
 
-    app.get("/api/reviews", function(req, res) {
-        db.Review.findAll({}).then(function(dbReview) {
+    app.get("/api/reviews", function (req, res) {
+        db.Review.findAll({}).then(function (dbReview) {
             res.json(dbReview);
         });
     });
@@ -96,30 +96,31 @@ module.exports = function(app) {
         });
     });
 
-    app.post("/api/reviews", function(req, res) {
+
+    app.post("/api/reviews", function (req, res) {
         db.Review.create({
             artist: req.body.artist,
             song: req.body.song,
             author: req.body.author,
             review: req.body.review
-        }).then(function(dbReview) {
+        }).then(function (dbReview) {
             res.json(dbReview);
-        }).catch(function(err) {
+        }).catch(function (err) {
             res.json(err);
         });
     });
 
-    app.delete("/api/reviews/:id", function(req, res) {
+    app.delete("/api/reviews/:id", function (req, res) {
         db.Review.destroy({
             where: {
                 id: req.params.id
             }
-        }).then(function(dbReview) {
+        }).then(function (dbReview) {
             res.json(dbReview);
         });
     });
 
-    app.put("/api/reviews", function(req, res) {
+    app.put("/api/reviews", function (req, res) {
         db.Review.update({
             artist: req.body.artist,
             song: req.body.song,
@@ -129,9 +130,9 @@ module.exports = function(app) {
             where: {
                 id: req.body.id
             }
-        }).then(function(dbReview) {
+        }).then(function (dbReview) {
             res.json(dbReview);
-        }).catch(function(err) {
+        }).catch(function (err) {
             res.json(err);
         });
     });
