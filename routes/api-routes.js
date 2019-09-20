@@ -1,21 +1,16 @@
 var db = require("../models");
+var Sequelize = require("sequelize");
+const Op = Sequelize.Op;
 
-//require("dotenv").config();
+
+require("dotenv").config();
 var SpotifyAPI = require("./SpotifyAPI");
-//var keys = require("../keys.js");
-var configKey = {
-    //borrowing due to testing
-    id: "34e84d93de6a4650815e5420e0361fd3",
-    secret: "5162cd8b5cf940f48702dffe096c2acb"
-};
-
-var spotify = new SpotifyAPI(configKey);
-//var spotify = new SpotifyAPI(keys.spotify);
+var keys = require("../keys.js");
+var spotify = new SpotifyAPI(keys.spotify);
 
 module.exports = function(app) {
 
     app.post("/api/Spotify", function(req, res) {
-        //console.log(req.body.song);
         spotify.getSong(req.body.song, (error, data) => {
             if(error) {
                 console.log(error);
@@ -32,10 +27,69 @@ module.exports = function(app) {
     });
 
     app.get("/api/reviews/:author", function(req, res) {
-        console.log(req.params);
         db.Review.findAll({
             where: {
                 author: req.params.author
+            }
+        }).then(function(dbReview) {
+            res.json(dbReview);
+        });
+    });
+
+    app.get("/api/artist/:artist", function(req, res) {
+        db.Review.findAll({
+            where: {
+                artist: {
+                    [Op.like]: "%" + req.params.artist + "%"
+                }
+            }
+        }).then(function(dbReview) {
+            res.json(dbReview);
+        });
+    });
+
+    app.get("/api/song/:song", function(req, res) {
+        db.Review.findAll({
+            where: {
+                song: {
+                    [Op.like]: "%" + req.params.song + "%"
+                }
+            }
+        }).then(function(dbReview) {
+            res.json(dbReview);
+        });
+    });
+
+    app.get("/api/author/:author", function(req, res) {
+        db.Review.findAll({
+            where: {
+                author: {
+                    [Op.like]: "%" + req.params.author + "%"
+                }
+            }
+        }).then(function(dbReview) {
+            res.json(dbReview);
+        });
+    });
+
+    app.get("/api/all/:all", function(req, res) {
+        db.Review.findAll({
+            where: {
+                [Op.or]: [
+                    {
+                        artist: {
+                            [Op.like]: "%" + req.params.all + "%"
+                        }
+                    }, {
+                        song: {
+                            [Op.like]: "%" + req.params.all + "%"
+                        }
+                    }, {
+                        author: {
+                            [Op.like]: "%" + req.params.all + "%"
+                        }
+                    }
+                ]
             }
         }).then(function(dbReview) {
             res.json(dbReview);
@@ -81,6 +135,5 @@ module.exports = function(app) {
             res.json(err);
         });
     });
-
 
 };

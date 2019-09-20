@@ -5,9 +5,6 @@ var $newSong;
 var $newAuthor;
 var $newReview = $("textarea.review-input");
 
-$("#makeReview").css("visibility", "hidden");
-
-//alert("It's connected");
 $newAuthor = window.location.href.toLowerCase();
 var userNum = $newAuthor.indexOf("userview");
 if (userNum != -1) {
@@ -19,7 +16,7 @@ if (userNum != -1) {
     $("#userName").css("visibility", "hidden");
     $("#searchSong").css("visibility", "hidden");
     $(".logout-div").css("visibility", "hidden");
-    $("#makeReview").css("visibility", "visible");
+    $("#makeReview").css("visibility", "hidden");
 };
 
 $(document).on("click", "button.login", loggingUser);
@@ -32,6 +29,7 @@ function returnIndex() {
 
 function logOut() {
     $newAuthor = "";
+    $(".review-container").empty();
     loggingUser();
 };
 
@@ -43,7 +41,7 @@ function loggingUser() {
         $("#userName").text("Welcome " + $newAuthor + "!");
         $("button.login").css("visibility", "hidden");
         $(".logout-div").css("visibility", "visible");
-        $("#song-results").empty();
+        $(".review-container").empty();
         $("#searchSong").css("visibility", "visible");
         $("#makeReview").css("visibility", "visible");
     } else {
@@ -63,8 +61,18 @@ $(".btnn").click(function(){
     var reviewInput = $(".input").val();
     if (reviewInput != "") {
         console.log(reviewInput);
-        //$newSong = songInput;
-        //spotifySearch();
+        var choice = $("option:selected").text();
+        $("select").prop("selectedIndex", 0);
+
+        if (choice === "Artist Search") {
+            checkArtist(reviewInput);
+        } else if (choice === "Song Search") {
+            checkSong(reviewInput);
+        } else if (choice === "Author Search") {
+            checkAuthor(reviewInput);
+        } else {
+            checkItAll(reviewInput);
+        }
     }
     $(".input").val("");
 }); 
@@ -89,6 +97,34 @@ function initializeRows() {
         rowsToAdd.splice(0, 0, createNewRow(reviews[i]));
     }
     $reviewContainer.prepend(rowsToAdd);
+};
+
+function checkArtist(input) {
+    $.get("/api/artist/" + input, function(data) {
+        reviews = data;
+        initializeRows();
+    });
+};
+
+function checkSong(input) {
+    $.get("/api/song/" + input, function(data) {
+        reviews = data;
+        initializeRows();
+    });
+};
+
+function checkAuthor(input) {
+    $.get("/api/author/" + input, function(data) {
+        reviews = data;
+        initializeRows();
+    });
+};
+
+function checkItAll(input) {
+    $.get("/api/all/" + input, function(data) {
+        reviews = data;
+        initializeRows();
+    });
 };
 
 function getReviews() {
