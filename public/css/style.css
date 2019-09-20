@@ -167,3 +167,16 @@ footer {
    background-color: #182955;
    color: white;
 }
+
+label#inputState {
+  background-color: white;
+  padding: 10px;
+  border-radius: 25px;
+  opacity: 0.8;
+}
+
+select#inputState {
+  background-color: white;
+  border-radius: 25px;
+  opacity: 0.8;
+}
