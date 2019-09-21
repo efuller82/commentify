@@ -34,11 +34,11 @@ At the home screen it will ask you to log in with a user name, after which you w
 
 Home screen for searching your favorite artist, song, etc. You can also add your own review if you would like to as well as read reviews that other users have written. You can use the search icon to locate an artist, song or album, which will populate a few of the hottest songs from that band and any reviews that have been written.
 
-![SignIn](/readmePics/pic_02.png)
+![SignedOn](/readmePics/pic_02.png)
 
 There are a few tabs in which you can navigate too such as reviews, which will populate a new screen with user reviews that have alreday been added as well as an option to write your own review. If you want to go back to home screen you can always clck the same settings tab and go back to song search which will take you back to the home screen.
 
-![SignIn](/readmePics/pic_03.png)
+![Reviews](/readmePics/pic_03.png)
 
 # Future updates
 * We started with oauth2 which is an authorization program that works well with google apis, but time didnt permit it perfecting it so we scratched that for the meantime but will ultimately add it later.
