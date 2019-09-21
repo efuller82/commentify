@@ -30,10 +30,11 @@ Commentify uses a few different apis and coding languages:
 # Getting started
 At the home screen it will ask you to log in with a user name, after which you will arrive on the home screen. There are a few things you can do from the home screen.
 
-![SignIn]("./readmePics/pic_01.png)
-![SignIn]("./readmePics/pic_02.png)
+![SignIn](/readmePics/pic_01.png)
 
 Home screen for searching your favorite artist, song, etc. You can also add your own review if you would like to as well as read reviews that other users have written. You can use the search icon to locate an artist, song or album, which will populate a few of the hottest songs from that band and any reviews that have been written.
+
+![SignIn](/readmePics/pic_02.png)
 
 There are a few tabs in which you can navigate too such as reviews, which will populate a new screen with user reviews that have alreday been added as well as an option to write your own review. If you want to go back to home screen you can always clck the same settings tab and go back to song search which will take you back to the home screen.
 
