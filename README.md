@@ -38,6 +38,8 @@ Home screen for searching your favorite artist, song, etc. You can also add your
 
 There are a few tabs in which you can navigate too such as reviews, which will populate a new screen with user reviews that have alreday been added as well as an option to write your own review. If you want to go back to home screen you can always clck the same settings tab and go back to song search which will take you back to the home screen.
 
+![SignIn](/readmePics/pic_03.png)
+
 # Future updates
 * We started with oauth2 which is an authorization program that works well with google apis, but time didnt permit it perfecting it so we scratched that for the meantime but will ultimately add it later.
 * The read me is far from perfect but will be fully detailed with images for each step as well as a cleaner step by step process of installation and getting started once I can figure out the image links/gifs.
