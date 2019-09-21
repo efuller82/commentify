@@ -17,6 +17,7 @@ Commentify uses a few different apis and coding languages:
 * [jQuery] - obviously
 * [path.js] - different routes for apis
 * [nodemon] - many things globally
+
 # Installation
 * You will need to install the following to get everything working correctly
 * You can npm install globally or locally in a new directory of your choosing
@@ -24,18 +25,18 @@ Commentify uses a few different apis and coding languages:
 * once the dependencies are installed via globally or your own local directory and passwords changed in comnfig to your own custom ones you can start the application
 * Once the app has started on the browser of your choosing you will need to log in, for example usser can be your name or anything of your choosing.
 * At this point you can navigate the home screen and play around with the app etc.
+
+
 # Getting started
-```logging in with a user name 
 At the home screen it will ask you to log in with a user name, after which you will arrive on the home screen. There are a few things you can do from the home screen.
-```
-```how to run the various features of the program
+
+![SignIn]("./readmePics/pic_01.png)
+![SignIn]("./readmePics/pic_02.png)
+
 Home screen for searching your favorite artist, song, etc. You can also add your own review if you would like to as well as read reviews that other users have written. You can use the search icon to locate an artist, song or album, which will populate a few of the hottest songs from that band and any reviews that have been written.
-```
-```navigating through the home screen options
+
 There are a few tabs in which you can navigate too such as reviews, which will populate a new screen with user reviews that have alreday been added as well as an option to write your own review. If you want to go back to home screen you can always clck the same settings tab and go back to song search which will take you back to the home screen.
-```
-```trying to add images and gifs for the step by step instrcutions on how to use all the features of our application I will update this again later to reflect the step by step intrsuctions with images and gifs, as to make it easier for first time users moving around on the website. Pending
-```
+
 # Future updates
 * We started with oauth2 which is an authorization program that works well with google apis, but time didnt permit it perfecting it so we scratched that for the meantime but will ultimately add it later.
 * The read me is far from perfect but will be fully detailed with images for each step as well as a cleaner step by step process of installation and getting started once I can figure out the image links/gifs.
