@@ -19,11 +19,10 @@ h1 {
   z-index: -2;
   position:absolute; 
   width: 100%; 
-  height: 150%; 
-  background-image: url("https://wallpaper-gallery.net/images/music-themed-wallpaper/music-themed-wallpaper-11.jpg"); 
+  height: 100%; 
+  background-image: url("https://raw.githubusercontent.com/efuller82/commentify/master/public/image/background.jpg"); 
   background-repeat: no-repeat; 
-  background-size: auto; 
-  background-position: 50% 50%; 
+  background-size: cover; 
 } 
 
 
