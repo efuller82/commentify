@@ -4,7 +4,7 @@ Commentify is a web based application for music streaming, reviews, and socializ
 See our app here: https://commentify1.herokuapp.com/
 
 ### Goal
-Our goal is to have a user freindly music and social platform where you can listen to your favorites songs, artists, and albums and be able to comment and write reviews on your likes and dislikes.
+Our goal is to have a user friendly music and social platform where you can listen to your favorites songs, artists, and albums and be able to comment and write reviews on your likes and dislikes.
 ### Tech
 Commentify uses a few different apis and coding languages:
 
